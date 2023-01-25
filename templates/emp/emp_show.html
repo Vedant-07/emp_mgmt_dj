@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show the emp here</title>
+</head>
+<body>
+    {%include 'emp/home.html'%}
+     
+
+    <h1 class="text-center my-3">List of employees</h1>
+
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Emp_id</th>
+                <th scope="col">Phone</th>
+                <th scope="col">E-Addr</th>
+                <th scope="col">wfh</th>
+                <th scope="col">Dept</th>
+                <th scope="col">&nbsp Action</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                {% for e in empp %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{e.name}}</td>
+                <td>{{e.emp_id}}</td>
+                <td>{{e.phone}}</td>
+                <td>{{e.e_addr}}</td>
+                <td>{{e.wfh}}</td>
+                <td>{{e.dept}}</td>
+              
+                {% comment %} doesnit work rn <div class="btn "> {% endcomment %}
+                <td><a href="/emp/delete-emp/{{e.id}}" class='btn btn-danger mx-3 btn-sm ' role="button">Delete</button>
+                
+                <a href="/emp/update-emp/{{e.id}}" role="button" class='btn btn-info btn-sm'>update</button></td>
+                
+            </tr>
+              {%endfor%}
+            </tbody>
+
+          </table>
+    </div>
+
+</body>
+</html>

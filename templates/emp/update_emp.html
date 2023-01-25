@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update here</title>
+</head>
+<body>
+    {% include 'emp/home.html ' %}
+   <h1 style="text-align:center">Update Employee</h1>
+
+   <div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3 my-3">
+
+            <div class="card bg-light p-3 ">
+
+                <form action="/emp/update-emp2/{{e.id}}" method="POST">
+                     {% csrf_token %}
+                      <div class="mb-3 mt-3">
+                        <label for="Input1" class="form-label">name</label>
+                        <input type="text" name="name" class="form-control" id="Input1" value={{e.name}} placeholder="name here">
+                      </div>
+                     
+
+                        <div class="mb-3">
+                            <label for="Input2" class="form-label">Emp-id</label>
+                            <input type="text" name='emp_id' class="form-control" value={{e.emp_id}} id="Input2" placeholder="id here">
+                          </div>
+                         
+
+                            <div class="mb-3">
+                                <label for="Input3" class="form-label">phone number</label>
+                                <input type="text" name='phone' class="form-control" value={{e.phone}} id="Input3" placeholder="phone">
+                              </div>
+                             
+
+                             <div class="mb-3 ">
+                                    <label for="Input4" class="form-label">Email address</label>
+                                    <input type="email" name='e_addr' class="form-control" value={{e.e_addr}} id="Input4" placeholder="name@example.com">
+                                  </div>
+                                  
+                        
+
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" name='wfh' type="checkbox" {% if e.wfh is True %} checked {% endif%}  id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                          work from home
+                                        </label>
+                                      </div>
+                                      
+                                      <select class="form-select form-select-lg mb-3" name='dept' value={{e.dept}} aria-label=".form-select-lg example">
+                                        <option selected>Select the dept</option>
+                                        <option value="Electrical">Electrical</option>
+                                        <option value="Computer">computer</option>
+                                        <option value="Aeronautical">Aero</option>
+                                      </select>
+                      
+                                      <div class="container2">
+                                        <div class="d-grid gap-2 col-6 mx-auto">
+                                           {% comment %} what the fuck   <button class="btn btn-primary" type="button">Add employee</button> {% endcomment %}
+                                           <input type="submit" value="update here">
+                                          </div>
+                                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   </div>
+</body>
+</html>
